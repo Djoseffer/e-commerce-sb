@@ -7,7 +7,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "tb_user")
 @Getter
 @Setter
 @AllArgsConstructor
