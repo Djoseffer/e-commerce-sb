@@ -29,6 +29,8 @@ public class Order implements Serializable {
     @ManyToOne
     @JoinColumn(name = "client_id")
     private User client;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     public void setOrderStatus(OrderStatus orderStatus) {
         if (orderStatus != null) {
