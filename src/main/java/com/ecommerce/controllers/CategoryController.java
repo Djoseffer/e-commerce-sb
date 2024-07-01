@@ -1,7 +1,7 @@
 package com.ecommerce.controllers;
 
-import com.ecommerce.entities.Order;
-import com.ecommerce.services.OrderService;
+import com.ecommerce.entities.Category;
+import com.ecommerce.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
-public class OrderController {
+@RequestMapping("/categories")
+public class CategoryController {
 
     @Autowired
-    private OrderService orderService;
+    private CategoryService categoryService;
 
     @GetMapping
-    public ResponseEntity<List<Order>> getAll() {
-        List<Order> list = orderService.findAll();
+    public ResponseEntity<List<Category>> getAll() {
+        List<Category> list = categoryService.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Order> findById(@PathVariable Long id) {
-        Order obj = orderService.findById(id);
+    public ResponseEntity<Category> findById(@PathVariable Long id) {
+        Category obj = categoryService.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }
